@@ -14,6 +14,8 @@
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
     }
 
     body {
@@ -71,18 +73,129 @@
             font-size: 1.5rem;
             background-color: white; /* Optional: Background for visibility */
             padding: 5px; /* Padding for text */
+            border: 3px solid rgb(245, 128, 128);
             border-radius: 5px; /* Optional: Rounded corners */
         }
     button {
-    background: transparent;
-    border: none !important;
-    font-size:0;
+        background: transparent;
+        border: none !important;
+        font-size:0;
     }
+
+    /* .Introduction{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: black;
+        z-index: 200;
+        color: white;
+        text-align: center;
+        line-height: 90vh;
+    }
+
+    .Introduction.display-none{
+        position: fixed;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: black;
+        z-index: -10;
+        color: white;
+        text-align: center;
+        line-height: 90vh;
+        transition: all 0.5s;
+    }
+
+    @keyframes fadeIn{
+        to{
+            opacity: 1;
+        }
+    }
+
+    .fade-in{
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+    } */
+
+    header{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 1005;
+        height: 80px;
+    }
+
+    /* header h4{
+        position: absolute;
+        left: 10%;
+        bottom: 1rem;
+        font-size: 1.6rem;
+    } */
+
+    /* splash screen */
+    .intro{
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #000000;
+        transition: 1s;
+        opacity: .9;
+    }
+
+    .logo-header{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+    }
+
+    .logo{
+        position: relative;
+        display: inline-block;
+        bottom: -20px;
+        opacity: 0;
+    }
+
+    .logo.active {
+        bottom: 0;
+        opacity: 1;
+        transition: ease-in-out 0.5s;
+    }
+
+    .logo.fade{
+        bottom: 150px;
+        opacity: 0;
+        transition: ease-in-out 0.5;
+    }
+
+
 </style>
 
 <body id="body">
 
     <?xml version="1.0"?>
+
+    <!-- <div class = "Introduction">
+        <h1 class="fade-in">Ready to Explore the World?</h1>
+    </div> -->
+
+    <div class = "intro">
+        <h1 class = "logo-header">
+            <span class = "logo"> Ready &nbsp;</span><span class="logo"> to &nbsp;</span><span class = "logo"> Explore &nbsp;</span><span class = "logo"> the &nbsp;</span><span class = "logo"> World? </span>
+        </h1>
+    </div>
+
+    <!-- <header>
+        <h4>Logo.</h4>
+    </header> -->
 
     <div id="name">
         <p id="namep">Name</p>
@@ -95,12 +208,6 @@
         <!-- <img src="" alt="Country Flag" id="flag" /> -->
       </section>
       </section>
-
-
-
-    <!-- <div id="timeCont">
-        <p id="time">INFORMATION</p>
-    </div> -->
 
     <svg id="allSvg" baseprofile="tiny" fill="#ececec" stroke="black" stroke-linecap="round" stroke-linejoin="round"
         version="1.2" viewbox="0 0 2000 857" xmlns="http://www.w3.org/2000/svg">
