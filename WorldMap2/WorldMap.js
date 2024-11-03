@@ -32,11 +32,14 @@ async function getUser(name) {
         console.log(currency[key].name);   
     }
     console.log(currency);
+
+    const flag = data[0].flag;
+    console.log(flag);
     // arr = Array.from(time)
     // arr.splice(0, 11)
     // arr.toString()
     // timezone = (arr.splice(0, 5)).join("");
-    document.getElementById("time").innerText = `${name}'s INFORMATION: Population = ${population} ${currency[key].name}`;
+    document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
 }
 
 document.querySelectorAll(".allPaths").forEach(e => {
