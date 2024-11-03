@@ -14,12 +14,16 @@
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+        font-family: "Times New Roman", serif;
     }
 
     body {
         overflow-x: hidden;
         overflow-y: hidden;
-        background-color: #3792bf;
+        background: linear-gradient(to bottom, #549ec3, #0565cd);
+        background-attachment: fixed;
+
     }
 
     #name {
@@ -31,22 +35,16 @@
         border: 3px solid rgb(0, 0, 0);
         padding: 0px 5px;
         font-size: 1.5rem;
-
-    }
-
-
-    #timeCont{
-        background-color: white;
-        width: fit-content;
-        font-size: 1.5rem;
-        padding: 5px 5px;
-        border-radius: 5px;
-        border: 3px solid rgb(245, 128, 128);        
     }
     
+    svg {
+            display: block; /* Ensure SVG is treated as a block */
+            width: 100%; /* Responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
 
     svg path {
-        fill: #ffffff;
+        fill: #f6f0da;
         transition: 0.6s;
         cursor: pointer;
     }
@@ -56,6 +54,96 @@
     transition: 0.6s;
     cursor: pointer;
     }
+    
+    #time {
+            position: absolute; /* Position absolute to overlap */
+            top: 50px; /* Adjust to control vertical position */
+            left: 0; /* Align with the left of the container */
+            z-index: 1; /* Ensure it appears above other content */
+            font-size: 1.5rem;
+            background-color: rgb(227, 233, 250); /* Optional: Background for visibility */
+            padding: 5px; /* Padding for text */
+            border: 3px solid rgb(11, 83, 251);
+            border-radius: 10px; /* Optional: Rounded corners */
+        }
+    button {
+        background: transparent;
+        border: none !important;
+        font-size:0;
+    }
+
+    header{
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 1005;
+        height: 80px;
+    }
+
+    /* splash screen */
+    .intro{
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #000000;
+        transition: 1s;
+        opacity: .9;
+    }
+
+    .logo-header{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #ffffff;
+    }
+
+    .logo{
+        position: relative;
+        display: inline-block;
+        bottom: -20px;
+        opacity: 0;
+    }
+
+    .logo.active {
+        bottom: 0;
+        opacity: 1;
+        transition: ease-in-out 0.5s;
+    }
+
+    .logo.fade{
+        bottom: 150px;
+        opacity: 0;
+        transition: ease-in-out 0.5;
+    }
+
+    #lapris{
+        position: absolute;
+        top: 50%;
+        left: 70%;
+    }
+
+    #magickarp{
+        position: absolute;
+        top: 30%;
+        left: 35%;
+    }
+
+    #ditto{
+        position: absolute;
+        top: 24%;
+        left: 21%;
+    }
+
+    #flareon{
+        position: absolute;
+        top: 9%;
+        left: 68%;
+    }
+
 
 </style>
 
@@ -63,15 +151,38 @@
 
     <?xml version="1.0"?>
 
+    <div class = "intro">
+        <h1 class = "logo-header">
+            <span class = "logo"> Ready &nbsp;</span><span class="logo"> to &nbsp;</span><span class = "logo"> Explore &nbsp;</span><span class = "logo"> the &nbsp;</span><span class = "logo"> World? </span>
+        </h1>
+    </div>
+
     <div id="name">
         <p id="namep">Name</p>
     </div>
 
+    <section id="timeCont" style="display:none"> 
+        <button id="timeCont"></button>
+        <section id="time">
+        <p id="time"></p>
+      </section>
+      </section>
 
+      <div id = "lapris">
+        <img alt="Animated GIF" src="https://64.media.tumblr.com/991481d1406a7538bcafaf61b6a8b5ca/tumblr_mragtx6gNN1rpn9eno1_500.gifv" width="70"/>
+      </div>
 
-    <div id="timeCont">
-        <p id="time">INFORMATION</p>
-    </div>
+      <div id = "magickarp">
+        <img alt="Animated GIF" src="https://64.media.tumblr.com/f0adee7f37af0e60ed006adc07accec1/tumblr_ocw90p3Ycb1scncwdo1_540.gif" width="120"/>
+      </div>
+
+      <div id = "ditto">
+        <img alt = "Animated GIF" src = "https://media.tenor.com/yEJMOgaQBLkAAAAi/ditto-shiny.gif" width="30"/>
+      </div>
+
+      <div id = "flareon">
+        <img alt ="Animated GIF" src="https://www.icons101.com/icon_png/size_256/id_60129/136_Flareon.png" width="50"/>
+      </div>
 
     <svg id="allSvg" baseprofile="tiny" fill="#ececec" stroke="black" stroke-linecap="round" stroke-linejoin="round"
         version="1.2" viewbox="0 0 2000 857" xmlns="http://www.w3.org/2000/svg">
