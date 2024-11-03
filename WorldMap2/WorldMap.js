@@ -57,7 +57,7 @@ e.addEventListener("mouseover", function () {
     })
     document.getElementById("name").style.opacity = 1
     
-    document.getElementById("namep").innerText = e.id
+    document.getElementById("name").innerText = e.id
 })
 e.addEventListener("mouseleave", function () {
     const classes=e.className.baseVal.replace(/ /g, '.')
