@@ -1,22 +1,3 @@
-// async function getUser(place) {
-//     const country_code = "US"
-//     const api_url = "https://www.travel-advisory.info/api"
-//     const country_api_url = `https://www.travel-advisory.info/api?countrycode=${country_code}`
-    
-//     // const response = await fetch(api_url);
-//     const response = await fetch(country_api_url);
-    
-//     const data = await response.json();
-//     console.log(data)
-    
-//     time = await data.datetime
-//     // arr = Array.from(time)
-//     // arr.splice(0, 11)
-//     // arr.toString()
-//     // timezone = (arr.splice(0, 5)).join("");
-//     document.getElementById("time").innerText = `${place}'s INFORMATION = ${time} ${data.timezone_abbreviation}`
-// }
-
 async function getUser(name) {
     const api_url = `https://restcountries.com/v3.1/name/${name}`
 
@@ -26,16 +7,11 @@ async function getUser(name) {
     const data = await response.json();
     console.log(data)
     
-    const population = data[0].population;
+    // const population = data[0].population;
+    const population = data[0].population.toLocaleString();
+    const area = data[0].area.toLocaleString();
 
-    // const currency = (data[0].currencies);
     let currencyDetails = ""; // Initialize an empty string for currency details
-    // for (const key in currency) {
-    //     if (currency.hasOwnProperty(key)) {
-    //         const currencyName = currency[key].name;
-    //         const currencySymbol = currency[key].symbol;
-    //         console.log(`Currency: ${currencyName}, Symbol: ${currencySymbol}`);
-    //         currencyDetails += `Currency: ${currencyName}, Symbol: ${currencySymbol}<br>`;
 
     const currency = data[0].currencies;
     for (var key in currency){//Because we don't know the name of the child we go through every child and find the name
@@ -46,28 +22,23 @@ async function getUser(name) {
     const languages = Object.values(data[0].languages);
     const demonym = (data[0].demonyms.eng.m);
     const timezones = data[0].timezones;
+    const region = data[0].region;
+    const capital = data[0].capital;
 
     const flag = data[0].flags.png;
-    // const imgElement = document.getElementById("flag");
-    // imgElement.src = flag;
-    // console.log(imgElement);
 
-
-    // arr = Array.from(time)
-    // arr.splice(0, 11)
-    // arr.toString()
-    // timezone = (arr.splice(0, 5)).join("");
     document.getElementById("time").style.display = "block";
     const infoHtml = `${name}'s Information:<br>
-    Timezone(s): ${timezones}<br>
     Demonym: ${demonym}<br>
     Language(s): ${languages}<br>
+    Region: ${region}<br>
+    Capital: ${capital}<br>
+    Area: ${area}<br>
     Population: ${population}<br>
-
-    Currency: ${currency[key].name} , ${currency[key].symbol}<br>
-
+    Currency: ${currency[key].name} , (${currency[key].symbol})<br>
+    Timezone(s): ${timezones}<br>
     <img src="${flag}" alt="Country Flag" style="width: 300px; height: auto;">`;
-    // document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
+
     document.getElementById("time").innerHTML = infoHtml;
     }
 
@@ -127,23 +98,10 @@ function toggleDropDown() {
     console.log("click 1")
     dropDown.style.display = "none";
   } 
-//   else {
-//     console.log("click 2")
-
-//     // toggleButton.textContent = "Show More"; // Update button text
-//   }
 }
 
 // Attach event listener to the button
 toggleButton.addEventListener("click", toggleDropDown);
-
-// const Introduction = document.querySelector('.Introduction');
-
-// document.addEventListener('DOMContentLoaded', (e)=>{
-//     setTimeout(()=>{
-//         document.getElementById("Introduction").style.display = 'none';
-//     }, 2000);
-// })
 
 let intro = document.querySelector('.intro');
 let logo = document.querySelector('.logo-header');
