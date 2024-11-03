@@ -39,6 +39,7 @@ async function getUser(name) {
     // arr.splice(0, 11)
     // arr.toString()
     // timezone = (arr.splice(0, 5)).join("");
+    document.getElementById("time").style.display = "block";
     document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
 }
 
@@ -86,3 +87,23 @@ e.addEventListener("click",function(){
 //         e.style.fill = "red"
 //     })
 // })
+
+// Select elements to work with
+const toggleButton = document.getElementById("timeCont");
+const dropDown = document.getElementById("time");
+
+// Function to toggle the display of the extra information section
+function toggleDropDown() {
+  if (dropDown.style.display != "none") {
+    console.log("click 1")
+    dropDown.style.display = "none";
+  } 
+//   else {
+//     console.log("click 2")
+
+//     // toggleButton.textContent = "Show More"; // Update button text
+//   }
+}
+
+// Attach event listener to the button
+toggleButton.addEventListener("click", toggleDropDown);
