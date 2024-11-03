@@ -28,12 +28,15 @@ async function getUser(name) {
     
     const population = data[0].population;
     const currency = data[0].currencies;
+    for (var key in currency){//Because we don't know the name of the child we go through every child and find the name
+        console.log(currency[key].name);   
+    }
+    console.log(currency);
     // arr = Array.from(time)
     // arr.splice(0, 11)
     // arr.toString()
     // timezone = (arr.splice(0, 5)).join("");
-    document.getElementById("time").innerText = `${name}'s INFORMATION: Population = ${population}`;
-    //${currency}
+    document.getElementById("time").innerText = `${name}'s INFORMATION: Population = ${population} ${currency[key].name}`;
 }
 
 document.querySelectorAll(".allPaths").forEach(e => {
