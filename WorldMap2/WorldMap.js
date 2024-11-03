@@ -27,11 +27,24 @@ async function getUser(name) {
     console.log(data)
     
     const population = data[0].population;
+
+    // const currency = (data[0].currencies);
+    let currencyDetails = ""; // Initialize an empty string for currency details
+    // for (const key in currency) {
+    //     if (currency.hasOwnProperty(key)) {
+    //         const currencyName = currency[key].name;
+    //         const currencySymbol = currency[key].symbol;
+    //         console.log(`Currency: ${currencyName}, Symbol: ${currencySymbol}`);
+    //         currencyDetails += `Currency: ${currencyName}, Symbol: ${currencySymbol}<br>`;
+
     const currency = data[0].currencies;
     for (var key in currency){//Because we don't know the name of the child we go through every child and find the name
         console.log(currency[key].name);   
     }
     console.log(currency);
+    const languages = Object.values(data[0].languages);
+    const demonym = (data[0].demonyms.eng.m);
+    const timezones = data[0].timezones;
 
     const flag = data[0].flags.png;
     // const imgElement = document.getElementById("flag");
@@ -44,9 +57,14 @@ async function getUser(name) {
     // arr.toString()
     // timezone = (arr.splice(0, 5)).join("");
     document.getElementById("time").style.display = "block";
-    const infoHtml = `${name}'s INFORMATION:<br>
+    const infoHtml = `${name}'s Information:<br>
+    Timezone(s): ${timezones}<br>
+    Demonym: ${demonym}<br>
+    Language(s): ${languages}<br>
     Population: ${population}<br>
+
     Currency: ${currency[key].name}<br>
+
     <img src="${flag}" alt="Country Flag" style="width: 300px; height: auto;">`;
     // document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
     document.getElementById("time").innerHTML = infoHtml;
