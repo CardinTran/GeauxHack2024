@@ -31,19 +31,25 @@
         border: 3px solid rgb(0, 0, 0);
         padding: 0px 5px;
         font-size: 1.5rem;
-
     }
 
 
-    #timeCont{
+    /* #timeCont{
+        position: relative;
         background-color: white;
         width: fit-content;
         font-size: 1.5rem;
         padding: 5px 5px;
         border-radius: 5px;
         border: 3px solid rgb(245, 128, 128);
-    }
+        border-style: none;
+    } */
     
+    svg {
+            display: block; /* Ensure SVG is treated as a block */
+            width: 100%; /* Responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
 
     svg path {
         fill: #ffffff;
@@ -57,10 +63,21 @@
     cursor: pointer;
     }
     
-    #time{
-        font-size: 1rem;
+    #time {
+            position: absolute; /* Position absolute to overlap */
+            top: 50px; /* Adjust to control vertical position */
+            left: 0; /* Align with the left of the container */
+            z-index: 1; /* Ensure it appears above other content */
+            font-size: 1.5rem;
+            background-color: white; /* Optional: Background for visibility */
+            padding: 5px; /* Padding for text */
+            border-radius: 5px; /* Optional: Rounded corners */
+        }
+    button {
+    background: transparent;
+    border: none !important;
+    font-size:0;
     }
-
 </style>
 
 <body id="body">
@@ -71,10 +88,11 @@
         <p id="namep">Name</p>
     </div>
 
-    <section id="timeCont"> 
-        <button id="timeCont">INTRODUCTION</button>
+    <section id="timeCont" style="display:none"> 
+        <button id="timeCont"></button>
         <section id="time">
         <p id="time"></p>
+        <!-- <img src="" alt="Country Flag" id="flag" /> -->
       </section>
       </section>
 

@@ -33,15 +33,24 @@ async function getUser(name) {
     }
     console.log(currency);
 
-    const flag = data[0].flag;
-    console.log(flag);
+    const flag = data[0].flags.png;
+    // const imgElement = document.getElementById("flag");
+    // imgElement.src = flag;
+    // console.log(imgElement);
+
+
     // arr = Array.from(time)
     // arr.splice(0, 11)
     // arr.toString()
     // timezone = (arr.splice(0, 5)).join("");
     document.getElementById("time").style.display = "block";
-    document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
-}
+    const infoHtml = `${name}'s INFORMATION:<br>
+    Population: ${population}<br>
+    Currency: ${currency[key].name}<br>
+    <img src="${flag}" alt="Country Flag" style="width: 300px; height: auto;">`;
+    // document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
+    document.getElementById("time").innerHTML = infoHtml;
+    }
 
 document.querySelectorAll(".allPaths").forEach(e => {
 e.setAttribute('class', `allPaths ${e.id}`);
@@ -72,6 +81,7 @@ e.addEventListener("click",function(){
     const classes=e.className.baseVal.replace(/ /g, '.')
     document.querySelectorAll(`.${classes}`).forEach(country =>{
         country.style.fill = "#34A56F"
+        document.getElementById("timeCont").style.display = "block";
     })
     getUser(e.id)
 })
