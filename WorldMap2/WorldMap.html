@@ -21,7 +21,9 @@
     body {
         overflow-x: hidden;
         overflow-y: hidden;
-        background-color: #3792bf;
+        background: linear-gradient(to bottom, #549ec3, #0565cd);
+        background-attachment: fixed;
+
     }
 
     #name {
@@ -42,7 +44,7 @@
         }
 
     svg path {
-        fill: #ffffff;
+        fill: #f6f0da;
         transition: 0.6s;
         cursor: pointer;
     }
@@ -59,7 +61,7 @@
             left: 0; /* Align with the left of the container */
             z-index: 1; /* Ensure it appears above other content */
             font-size: 1.5rem;
-            background-color: white; /* Optional: Background for visibility */
+            background-color: rgb(224, 232, 254); /* Optional: Background for visibility */
             padding: 5px; /* Padding for text */
             border: 3px solid rgb(11, 83, 251);
             border-radius: 10px; /* Optional: Rounded corners */

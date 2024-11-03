@@ -70,7 +70,7 @@ e.addEventListener("mouseleave", function () {
 e.addEventListener("click",function(){
     const classes=e.className.baseVal.replace(/ /g, '.')
     document.querySelectorAll(`.${classes}`).forEach(country =>{
-        country.style.fill = "#34A56F"
+        country.style.fill = "#2d8751"
         document.getElementById("timeCont").style.display = "block";
     })
     getUser(e.id)
