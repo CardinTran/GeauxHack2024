@@ -39,7 +39,8 @@ async function getUser(name) {
 
     const currency = data[0].currencies;
     for (var key in currency){//Because we don't know the name of the child we go through every child and find the name
-        console.log(currency[key].name);   
+        console.log(currency[key].name);
+        console.log(currency[key].symbol);   
     }
     console.log(currency);
     const languages = Object.values(data[0].languages);
@@ -63,7 +64,7 @@ async function getUser(name) {
     Language(s): ${languages}<br>
     Population: ${population}<br>
 
-    Currency: ${currency[key].name}<br>
+    Currency: ${currency[key].name} , ${currency[key].symbol}<br>
 
     <img src="${flag}" alt="Country Flag" style="width: 300px; height: auto;">`;
     // document.getElementById("time").innerText = `${name}'s INFORMATION: \n Population = ${population} \n Currency = ${currency[key].name} \n ${flag}`;
@@ -172,96 +173,3 @@ window.addEventListener('DOMContentLoaded', ()=>{
         }, 3700)
     })
 })
-
-// const elements = document.querySelectorAll('.count');
-// const values = Array.from(elements).map(element => {
-//     const value = parseInt(element.innerText.replace('Value: ', '')); // Extract the integer
-//     return value; // Return the integer value
-// });
-// const countries = document.querySelectorAll('#allSvg .allPaths');
-// const countryCount = countries.length;
-// console.log(`Total number of countries: ${countryCount}`);
-
-// const countryElements = document.querySelectorAll('.allPaths');
-// const uniqueClasses = new Set();
-
-// countryElements.forEach(element => {
-//     uniqueClasses.add(element.className); // Adds class to the set
-// });
-
-// console.log(`Unique classes: ${Array.from(uniqueClasses)}`);
-
-// const countries = document.querySelectorAll('#allSvg .allPaths');
-
-// // Create an object to hold unique countries
-// const uniqueCountriesMap = {};
-
-// // Loop through the NodeList
-// countries.forEach(country => {
-//     const countryId = country.id; // or some unique attribute
-    
-//     // Check if the ID already exists in the map
-//     if (!uniqueCountriesMap[countryId]) {
-//         // If it doesn't exist, add it to the map
-//         uniqueCountriesMap[countryId] = country;
-//     }
-// });
-
-// // Convert the map values back to an array
-// const uniqueCountries = Object.values(uniqueCountriesMap);
-
-// // Log the unique countries
-// console.log(`Total number of unique countries: ${uniqueCountries.length}`);
-
-// // Optionally, if you want to remove the duplicates from the DOM, you can do that here
-// // For example, remove all countries and re-add unique ones:
-// const svgContainer = document.getElementById('allSvg');
-// svgContainer.innerHTML = ''; // Clear the SVG
-
-// uniqueCountries.forEach(country => {
-//     svgContainer.appendChild(country.cloneNode(true)); // Clone and append each unique country
-// });
-
-// const countries = document.querySelectorAll('#allSvg .allPaths');
-
-// // Create a Set to hold unique IDs
-// const uniqueIds = new Set();
-
-// // Loop through the NodeList
-// countries.forEach(country => {
-//     uniqueIds.add(country.id); // Add each ID to the Set
-// });
-
-// // Count unique IDs
-// const countryCount = uniqueIds.size;
-// console.log(`Total number of unique countries: ${countryCount}`);
-
-const countries = document.querySelectorAll('#allSvg .allPaths');
-
-// Create an object to count occurrences of each ID
-const idCounts = {};
-
-// Loop through the NodeList
-countries.forEach(country => {
-    const id = country.id;
-
-    // Increment the count for this ID
-    if (idCounts[id]) {
-        idCounts[id]++;
-    } else {
-        idCounts[id] = 1;
-    }
-});
-
-// Identify duplicates and count unique IDs
-let uniqueCount = 0;
-for (const id in idCounts) {
-    if (idCounts[id] > 1) {
-        console.log(`Duplicate ID found: ${id} (Count: ${idCounts[id]})`);
-    } else {
-        uniqueCount++;
-    }
-}
-
-// Log total unique countries
-console.log(`Total number of unique countries: ${uniqueCount}`);
